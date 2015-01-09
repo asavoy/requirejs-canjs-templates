@@ -1,0 +1,28 @@
+{
+  "name": "requirejs-canjs-templates",
+  "version": "0.1.0",
+  "homepage": "https://github.com/asavoy/requirejs-canjs-templates",
+  "authors": [
+    "Alvin Savoy <asavoy@users.noreply.github.com>"
+  ],
+  "description": "A RequireJS plugin for loading CanJS 2.1+ templates.",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "requirejs",
+    "canjs",
+    "templates",
+    "mustache",
+    "stache",
+    "ejs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
