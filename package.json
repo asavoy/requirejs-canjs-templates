@@ -1,0 +1,29 @@
+{
+  "name": "requirejs-canjs-templates",
+  "version": "0.1.0",
+  "description": "A RequireJS plugin for loading CanJS 2.1+ templates.",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asavoy/requirejs-canjs-templates.git"
+  },
+  "keywords": [
+    "requirejs",
+    "canjs",
+    "templates",
+    "ejs",
+    "mustache",
+    "stache"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/asavoy/requirejs-canjs-templates/issues"
+  },
+  "homepage": "https://github.com/asavoy/requirejs-canjs-templates"
+}
