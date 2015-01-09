@@ -25,12 +25,6 @@ define([
             "});" +
         "\n");
 
-    // Convert module name to module path. This should be a real path
-    // relative to the baseUrl.
-    var toModulePath = function(moduleName) {
-        return moduleName + extension;
-    };
-
     // Convert a module path to a can.view ID, so that can.view(id) works.
     var toId = function(modulePath) {
 		var pathParts = modulePath.toString().split(/\/|\./g);
@@ -45,19 +39,17 @@ define([
 
     return {
         normalize: function(moduleName, normalize) {
-            // Remove the file extension from the module name.
-            if (moduleName.slice(-extension.length) === extension) {
-                moduleName = moduleName.substr(0, moduleName.length - extension.length);
+            // Add the file extension to the module name.
+            if (moduleName.slice(-extension.length) !== extension) {
+                moduleName += extension;
             }
             return normalize(moduleName);
         },
         load: function(moduleName, parentRequire, onload, config) {
-            // This path is always relative to the baseUrl.
-            var modulePath = toModulePath(moduleName);
             // This path is the absolute path.
-            var fullPath = parentRequire.toUrl(modulePath);
+            var fullPath = parentRequire.toUrl(moduleName);
             // The can.view ID.
-            var canViewId = toId(modulePath);
+            var canViewId = toId(moduleName);
 
             // Have we already loaded this? Resolve with result of first load.
             if (buildMap[moduleName]) {
@@ -90,10 +82,8 @@ define([
             }
         },
         write: function(pluginName, moduleName, write, config) {
-            // This path is always relative to the baseUrl.
-            var modulePath = toModulePath(moduleName);
             // The can.view ID.
-            var canViewId = toId(modulePath);
+            var canViewId = toId(moduleName);
             // Get the raw source we kept during load().
             var rawSource = sourceMap[moduleName];
             var escapedRawSource = rawSource && text.jsEscape(rawSource);

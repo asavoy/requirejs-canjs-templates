@@ -22738,12 +22738,6 @@ define('ejs',[
             "});" +
         "\n");
 
-    // Convert module name to module path. This should be a real path
-    // relative to the baseUrl.
-    var toModulePath = function(moduleName) {
-        return moduleName + extension;
-    };
-
     // Convert a module path to a can.view ID, so that can.view(id) works.
     var toId = function(modulePath) {
 		var pathParts = modulePath.toString().split(/\/|\./g);
@@ -22758,19 +22752,17 @@ define('ejs',[
 
     return {
         normalize: function(moduleName, normalize) {
-            // Remove the file extension from the module name.
-            if (moduleName.slice(-extension.length) === extension) {
-                moduleName = moduleName.substr(0, moduleName.length - extension.length);
+            // Add the file extension to the module name.
+            if (moduleName.slice(-extension.length) !== extension) {
+                moduleName += extension;
             }
             return normalize(moduleName);
         },
         load: function(moduleName, parentRequire, onload, config) {
-            // This path is always relative to the baseUrl.
-            var modulePath = toModulePath(moduleName);
             // This path is the absolute path.
-            var fullPath = parentRequire.toUrl(modulePath);
+            var fullPath = parentRequire.toUrl(moduleName);
             // The can.view ID.
-            var canViewId = toId(modulePath);
+            var canViewId = toId(moduleName);
 
             // Have we already loaded this? Resolve with result of first load.
             if (buildMap[moduleName]) {
@@ -22803,10 +22795,8 @@ define('ejs',[
             }
         },
         write: function(pluginName, moduleName, write, config) {
-            // This path is always relative to the baseUrl.
-            var modulePath = toModulePath(moduleName);
             // The can.view ID.
-            var canViewId = toId(modulePath);
+            var canViewId = toId(moduleName);
             // Get the raw source we kept during load().
             var rawSource = sourceMap[moduleName];
             var escapedRawSource = rawSource && text.jsEscape(rawSource);
@@ -22827,7 +22817,7 @@ define('ejs',[
 });
 
 
-define('ejs!templates/hello', ['can/util/library', 'can/view/ejs'], function(can) { var template = '<p id="helloEjs">Hello ejs</p>\n';  return can.ejs('templates_hello_ejs', template);  });
+define('ejs!templates/hello.ejs', ['can/util/library', 'can/view/ejs'], function(can) { var template = '<p id="helloEjs">Hello ejs</p>\n';  return can.ejs('templates_hello_ejs', template);  });
 
 /**
  * RequireJS loader plugin for CanJS 2.1 Mustache templates.
@@ -22856,12 +22846,6 @@ define('mustache',[
             "});" +
         "\n");
 
-    // Convert module name to module path. This should be a real path
-    // relative to the baseUrl.
-    var toModulePath = function(moduleName) {
-        return moduleName + extension;
-    };
-
     // Convert a module path to a can.view ID, so that can.view(id) works.
     var toId = function(modulePath) {
 		var pathParts = modulePath.toString().split(/\/|\./g);
@@ -22876,19 +22860,17 @@ define('mustache',[
 
     return {
         normalize: function(moduleName, normalize) {
-            // Remove the file extension from the module name.
-            if (moduleName.slice(-extension.length) === extension) {
-                moduleName = moduleName.substr(0, moduleName.length - extension.length);
+            // Add the file extension to the module name.
+            if (moduleName.slice(-extension.length) !== extension) {
+                moduleName += extension;
             }
             return normalize(moduleName);
         },
         load: function(moduleName, parentRequire, onload, config) {
-            // This path is always relative to the baseUrl.
-            var modulePath = toModulePath(moduleName);
             // This path is the absolute path.
-            var fullPath = parentRequire.toUrl(modulePath);
+            var fullPath = parentRequire.toUrl(moduleName);
             // The can.view ID.
-            var canViewId = toId(modulePath);
+            var canViewId = toId(moduleName);
 
             // Have we already loaded this? Resolve with result of first load.
             if (buildMap[moduleName]) {
@@ -22921,10 +22903,8 @@ define('mustache',[
             }
         },
         write: function(pluginName, moduleName, write, config) {
-            // This path is always relative to the baseUrl.
-            var modulePath = toModulePath(moduleName);
             // The can.view ID.
-            var canViewId = toId(modulePath);
+            var canViewId = toId(moduleName);
             // Get the raw source we kept during load().
             var rawSource = sourceMap[moduleName];
             var escapedRawSource = rawSource && text.jsEscape(rawSource);
@@ -22945,7 +22925,7 @@ define('mustache',[
 });
 
 
-define('mustache!templates/hello', ['can/util/library', 'can/view/mustache'], function(can) { var template = '<p id="helloMustache">Hello mustache</p>\n';  return can.mustache('templates_hello_mustache', template);  });
+define('mustache!templates/hello.mustache', ['can/util/library', 'can/view/mustache'], function(can) { var template = '<p id="helloMustache">Hello mustache</p>\n';  return can.mustache('templates_hello_mustache', template);  });
 
 /**
  * RequireJS loader plugin for CanJS 2.1 Stache templates.
@@ -22974,12 +22954,6 @@ define('stache',[
             "});" +
         "\n");
 
-    // Convert module name to module path. This should be a real path
-    // relative to the baseUrl.
-    var toModulePath = function(moduleName) {
-        return moduleName + extension;
-    };
-
     // Convert a module path to a can.view ID, so that can.view(id) works.
     var toId = function(modulePath) {
 		var pathParts = modulePath.toString().split(/\/|\./g);
@@ -22994,19 +22968,17 @@ define('stache',[
 
     return {
         normalize: function(moduleName, normalize) {
-            // Remove the file extension from the module name.
-            if (moduleName.slice(-extension.length) === extension) {
-                moduleName = moduleName.substr(0, moduleName.length - extension.length);
+            // Add the file extension to the module name.
+            if (moduleName.slice(-extension.length) !== extension) {
+                moduleName += extension;
             }
             return normalize(moduleName);
         },
         load: function(moduleName, parentRequire, onload, config) {
-            // This path is always relative to the baseUrl.
-            var modulePath = toModulePath(moduleName);
             // This path is the absolute path.
-            var fullPath = parentRequire.toUrl(modulePath);
+            var fullPath = parentRequire.toUrl(moduleName);
             // The can.view ID.
-            var canViewId = toId(modulePath);
+            var canViewId = toId(moduleName);
 
             // Have we already loaded this? Resolve with result of first load.
             if (buildMap[moduleName]) {
@@ -23039,10 +23011,8 @@ define('stache',[
             }
         },
         write: function(pluginName, moduleName, write, config) {
-            // This path is always relative to the baseUrl.
-            var modulePath = toModulePath(moduleName);
             // The can.view ID.
-            var canViewId = toId(modulePath);
+            var canViewId = toId(moduleName);
             // Get the raw source we kept during load().
             var rawSource = sourceMap[moduleName];
             var escapedRawSource = rawSource && text.jsEscape(rawSource);
@@ -23063,7 +23033,7 @@ define('stache',[
 });
 
 
-define('stache!templates/hello', ['can/util/library', 'can/view/stache'], function(can) { var template = '<p id="helloStache">Hello stache</p>\n';  return can.stache('templates_hello_stache', template);  });
+define('stache!templates/hello.stache', ['can/util/library', 'can/view/stache'], function(can) { var template = '<p id="helloStache">Hello stache</p>\n';  return can.stache('templates_hello_stache', template);  });
 
 define('app',[
     'can',
