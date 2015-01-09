@@ -1,0 +1,6 @@
+
+* Setup bower and npm packages.
+* Normalize by adding file extensions, instead of removing.
+* Lazily compile the template into a renderer function.
+* Add tests.
+
