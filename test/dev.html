@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/bower_components/qunit/qunit/qunit.css">
+    <script src="/bower_components/qunit/qunit/qunit.js"></script>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="/bower_components/requirejs/require.js"></script>
+    <script>
+        requirejs.config({ baseUrl: '/test/dev' });
+        require(['../require-config'], function() {
+            require(['app'], function() {
+                QUnit.start();
+            });
+        });
+    </script>
+    <script>
+        QUnit.config.autostart = false;
+        QUnit.test('ejs template renders', function() {
+            QUnit.ok(document.querySelectorAll('#helloEjs').length);
+        });
+        QUnit.test('mustache template renders', function() {
+            QUnit.ok(document.querySelectorAll('#helloMustache').length);
+        });
+        QUnit.test('stache template renders', function() {
+            QUnit.ok(document.querySelectorAll('#helloStache').length);
+        });
+    </script>
+</body>
+</html>
