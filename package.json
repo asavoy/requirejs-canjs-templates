@@ -24,6 +24,11 @@
     "mustache",
     "stache"
   ],
+  "ignore": [
+    "Gruntfile.js",
+    "package.json",
+    "test"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
