@@ -4,7 +4,9 @@
   "description": "A RequireJS plugin for loading CanJS 2.1+ templates.",
   "dependencies": {
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
   "scripts": {
     "test": "grunt test"
   },
