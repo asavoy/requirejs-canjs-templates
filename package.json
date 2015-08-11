@@ -1,7 +1,7 @@
 {
   "name": "requirejs-canjs-templates",
-  "version": "0.1.0",
-  "description": "A RequireJS plugin for loading CanJS 2.1+ templates.",
+  "version": "0.2.0",
+  "description": "A RequireJS plugin for loading CanJS 2.2+ templates.",
   "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.5",
