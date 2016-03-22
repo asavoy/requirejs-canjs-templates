@@ -98,6 +98,13 @@ For further integration examples, see https://github.com/asavoy/requirejs-canjs-
 Changelog
 ---------
 
+0.3.0
+
+Thanks to @lastzero:
+
+* Fixed compatibility with Bower.
+* Fixed Stache template loader by removing debugging code.
+
 0.2.0
 
 * Added support for <can-import from="..." /> in CanJS 2.2 Stache templates.
