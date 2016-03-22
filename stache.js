@@ -98,7 +98,6 @@ define([
                         // so we require the template compiler first.
                         parentRequire(['can/util/library', 'can/view/stache', 'can/view/intermediate_and_imports'], function(can, stache, getIntermediateAndImports) {
                             // Parse into intermediate form, and get any <can-import> imports.
-                            debugger;
                             var intermediateAndImports = getIntermediateAndImports(rawSource);
                             // Fetch imports first...
                             parentRequire(intermediateAndImports.imports, function() {
