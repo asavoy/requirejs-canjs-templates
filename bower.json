@@ -1,11 +1,11 @@
 {
   "name": "requirejs-canjs-templates",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/asavoy/requirejs-canjs-templates",
   "authors": [
     "Alvin Savoy <asavoy@users.noreply.github.com>"
   ],
-  "description": "A RequireJS plugin for loading CanJS 2.1+ templates.",
+  "description": "A RequireJS plugin for loading CanJS 2.2+ templates.",
   "moduleType": [
     "amd"
   ],
@@ -26,7 +26,7 @@
     "tests"
   ],
   "devDependencies": {
-    "canjs": "2.1.4",
+    "canjs": "2.2.7",
     "requirejs": "~2.1.15",
     "text": "~2.0.13",
     "jquery": "~2.1.3",
