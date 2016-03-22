@@ -29,6 +29,7 @@ define([
     var buildRequire = require.config({
         context: '__build',
         baseUrl: require.s.contexts._.config.baseUrl,
+        paths: require.s.contexts._.config.paths,
         map: {
             '*': {
                 'can/util/jquery' : 'can/util/domless'
