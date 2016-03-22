@@ -29,6 +29,9 @@
         QUnit.test('stache template renders', function() {
             QUnit.ok(document.querySelectorAll('#helloStache').length);
         });
+        QUnit.test('component imported by <can-import> in stache template renders', function() {
+            QUnit.ok(document.querySelectorAll('#importedComponentContent').length);
+        });
     </script>
 </body>
 </html>
